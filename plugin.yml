@@ -1,0 +1,25 @@
+main: me.Tiernanator.Permissions.Main
+version: 4.0
+name: Permissions
+description: A Plugin that handles player Permissions.
+load: POSTWORLD
+author: Tiernanator
+website: None
+database: false
+depend: [Utilities]
+prefix: Permission
+softdepend: []
+loadbefore: []
+commands:
+    permissions:
+        description: Lists all your permissions.
+    setGroup:
+        description: Allows you to set a players' group.
+    promote:
+        description: Raises a players' permission tier by 1.
+    demote:
+        description: Lowers a players' permission tier by 1.
+    testPermission:
+        description: Returns true if you have the specified permission.
+    getGroup:
+        description: Returns the players' group.
