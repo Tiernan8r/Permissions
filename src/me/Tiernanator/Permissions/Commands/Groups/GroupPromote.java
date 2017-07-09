@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.Tiernanator.Colours.Colour;
-import me.Tiernanator.Permissions.Main;
+import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Events.CustomEvents.CustomGroupChangeEvent;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
@@ -17,7 +17,7 @@ import me.Tiernanator.Utilities.Players.GetPlayer;
 
 public class GroupPromote implements CommandExecutor {
 
-	private static Main plugin;
+	private static PermissionsMain plugin;
 	
 	// Colour Constants
 	private static ChatColor highlight = Colour.HIGHLIGHT.getColour();
@@ -25,7 +25,7 @@ public class GroupPromote implements CommandExecutor {
 	private static ChatColor good = Colour.GOOD.getColour();
 	private static ChatColor informative = Colour.INFORMATIVE.getColour();
 
-	public GroupPromote(Main main) {
+	public GroupPromote(PermissionsMain main) {
 		plugin = main;
 	}
 

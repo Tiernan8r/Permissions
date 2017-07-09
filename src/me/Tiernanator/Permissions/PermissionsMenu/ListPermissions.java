@@ -18,16 +18,16 @@ import me.Tiernanator.File.ConfigAccessor;
 import me.Tiernanator.Menu.Menu;
 import me.Tiernanator.Menu.MenuAction;
 import me.Tiernanator.Menu.MenuEntry;
-import me.Tiernanator.Permissions.Main;
+import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Utilities.Items.Item;
 
 public class ListPermissions implements CommandExecutor {
 	
 	private static ChatColor warning = Colour.WARNING.getColour();
 
-	private Main plugin;
+	private PermissionsMain plugin;
 	//sets the value of the plugin to the main class
-	public ListPermissions(Main main) {
+	public ListPermissions(PermissionsMain main) {
 		plugin = main;
 	}
 	

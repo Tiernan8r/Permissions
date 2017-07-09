@@ -1,4 +1,4 @@
-main: me.Tiernanator.Permissions.Main
+main: me.Tiernanator.Permissions.PermissionsMain
 version: 4.0
 name: Permissions
 description: A Plugin that handles player Permissions.

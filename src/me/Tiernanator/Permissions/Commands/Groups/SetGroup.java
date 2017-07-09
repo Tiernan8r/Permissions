@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.Tiernanator.Colours.Colour;
-import me.Tiernanator.Permissions.Main;
+import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
 import me.Tiernanator.Utilities.Players.GetPlayer;
@@ -16,7 +16,7 @@ public class SetGroup implements CommandExecutor {
 
 	// plugin has changed to static because the function references it.
 	@SuppressWarnings("unused")
-	private static Main plugin;
+	private static PermissionsMain plugin;
 
 	// the colour constants, values set in allocate()
 	private static ChatColor highlight = Colour.HIGHLIGHT.getColour();
@@ -25,7 +25,7 @@ public class SetGroup implements CommandExecutor {
 	private static ChatColor bad = Colour.BAD.getColour();
 	private static ChatColor informative = Colour.INFORMATIVE.getColour();
 
-	public SetGroup(Main main) {
+	public SetGroup(PermissionsMain main) {
 		plugin = main;
 	}
 

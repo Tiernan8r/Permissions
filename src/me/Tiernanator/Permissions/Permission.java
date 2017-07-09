@@ -22,16 +22,15 @@ public class Permission {
 
 	private static JavaPlugin plugin;
 
-	public static void setPlugin(Main main) {
+	public static void setPlugin(PermissionsMain main) {
 		plugin = main;
 	}
 
 	public static void setGroup(Group group, Player player) {
 		
-		Log log = Main.getLog();
+		Log log = PermissionsMain.getLog();
 		
 		if(group == null) {
-//			System.out.println("Player " + player.getName() + "'s group is null!");
 			log.log("Player " + player.getName() + "'s group is null!");
 			return;
 		}
@@ -41,17 +40,13 @@ public class Permission {
 			@Override
 			public void run() {
 				
-//				System.out.println("Setting player " + player.getName() + "'s permissions from group " + group.getName() + ":");
 				log.log("Setting player " + player.getName() + "'s permissions from group " + group.getName() + ":");
-//				plugin.getLogger().log(Level.INFO, "Setting player " + player.getName() + "'s permissions from group " + group.getName() + ":");
 				
 				List<Group> allGroups = Group.allGroups();
 				if (!(allGroups.contains(group))) {
 					return;
 				}
-//				System.out.println("- Clearing " + player.getName() + "'s previous permissions:");
 				log.log("- Clearing " + player.getName() + "'s previous permissions:");
-//				plugin.getLogger().log(Level.INFO, "- Clearing " + player.getName() + "'s previous permissions:");
 				removePermissions(player, plugin);
 
 				int thisGroupIndex = allGroups.indexOf(group);
@@ -70,51 +65,15 @@ public class Permission {
 
 				}
 				
-//				System.out.println("- Setting new permissions for player " + player.getName() + ":");
 				log.log("- Setting new permissions for player " + player.getName() + ":");
-//				plugin.getLogger().log(Level.INFO, "- Setting new permissions for player " + player.getName() + ":");
 				setPermissions(player, permissions, plugin);
 				player.setOp(group.membersOP());
-//				System.out.println("Done.");
 				log.log("Done.");
-				// Group.setPlayerGroup(player, group);
 				
 			}
 		};
 		runnable.runTaskAsynchronously(plugin);
 
-//		System.out.println("Setting player " + player.getName() + "'s permissions from group " + group.getName() + ":");
-////		plugin.getLogger().log(Level.INFO, "Setting player " + player.getName() + "'s permissions from group " + group.getName() + ":");
-//		
-//		List<Group> allGroups = Group.allGroups();
-//		if (!(allGroups.contains(group))) {
-//			return;
-//		}
-//		System.out.println("- Clearing " + player.getName() + "'s previous permissions:");
-////		plugin.getLogger().log(Level.INFO, "- Clearing " + player.getName() + "'s previous permissions:");
-//		removePermissions(player, plugin);
-//
-//		int thisGroupIndex = allGroups.indexOf(group);
-//
-//		List<String> permissions = new ArrayList<String>();
-//
-//		for (int i = 0; i <= thisGroupIndex; i++) {
-//			Group iGroup = allGroups.get(i);
-//			
-//			List<String> iPermissions = iGroup.getPermissions();
-//			for (String p : iPermissions) {
-//				if (!permissions.contains(p)) {
-//					permissions.add(p);
-//				}
-//			}
-//
-//		}
-//		
-//		System.out.println("- Setting new permissions for player " + player.getName() + ":");
-////		plugin.getLogger().log(Level.INFO, "- Setting new permissions for player " + player.getName() + ":");
-//		setPermissions(player, permissions, plugin);
-//		player.setOp(group.membersOP());
-//		// Group.setPlayerGroup(player, group);
 	}
 
 	// public coz other classes use it, input is the player to remove
@@ -131,7 +90,6 @@ public class Permission {
 			return;
 		}
 		
-//		List<String> permissions = playerGroup.getPermissions();
 		Set<PermissionAttachmentInfo> permissionsInfo = player
 				.getEffectivePermissions();
 
@@ -139,17 +97,8 @@ public class Permission {
 
 		for (PermissionAttachmentInfo i : permissionsInfo) {
 			attachment.setPermission(i.getPermission(), false);
-//			String thisPermission = i.getPermission();
-//
-//			for (String groupPermission : permissions) {
-//
-//				if (thisPermission.equalsIgnoreCase(groupPermission)) {
-//					attachment.setPermission(i.getPermission(), false);
-			Log log = Main.getLog();
+			Log log = PermissionsMain.getLog();
 			log.log(" - Removing permission " + i.getPermission() + " from player " + player.getName() + ".");
-//			plugin.getLogger().log(Level.INFO, " - Removing permission " + i.getPermission() + " from player " + player.getName() + ".");
-//				}
-//			}
 
 		}
 
@@ -176,7 +125,7 @@ public class Permission {
 		// Setting the actual permissions
 		for (PermissionAttachmentInfo i : player.getEffectivePermissions()) {
 			attachment.setPermission(i.getPermission(), true);
-			Log log = Main.getLog();
+			Log log = PermissionsMain.getLog();
 			log.log(" - Registering permission " + i.getPermission() + " for player " + player.getName() + ".");
 		}
 
@@ -207,7 +156,7 @@ public class Permission {
 
 	public static void initialisePluginPermissions() {
 		
-		Log log = Main.getLog();
+		Log log = PermissionsMain.getLog();
 
 		Plugin[] allPlugins = plugin.getServer().getPluginManager()
 				.getPlugins();
@@ -238,8 +187,6 @@ public class Permission {
 				
 				Group group = Group.allGroups().get(groupNumber);
 				group.addPermission(permission);
-				// getServer().broadcastMessage(permission + ": " +
-				// description);
 			}
 		}
 	}

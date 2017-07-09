@@ -7,23 +7,23 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import me.Tiernanator.Colours.Colour;
-import me.Tiernanator.Permissions.Main;
+import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Permission;
 
 public class OnCommand implements Listener {
 
 	@SuppressWarnings("unused")
-	private static Main plugin;
+	private static PermissionsMain plugin;
 
 	private ChatColor highlight = Colour.HIGHLIGHT.getColour();
 	private ChatColor warning = Colour.WARNING.getColour();
 	private ChatColor informative = Colour.INFORMATIVE.getColour();
 
-	public OnCommand(Main main) {
+	public OnCommand(PermissionsMain main) {
 		plugin = main;
 	}
 
-	public static void setPlugin(Main main) {
+	public static void setPlugin(PermissionsMain main) {
 		plugin = main;
 	}
 	

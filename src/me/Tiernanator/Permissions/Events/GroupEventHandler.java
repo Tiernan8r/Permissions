@@ -7,23 +7,24 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import me.Tiernanator.Colours.Colour;
-import me.Tiernanator.Permissions.Main;
+import me.Tiernanator.Permissions.PermissionsMain;
+import me.Tiernanator.Permissions.Commands.Groups.GetGroup;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
 
 public class GroupEventHandler implements Listener {
 
 	@SuppressWarnings("unused")
-	private static Main plugin;
+	private static PermissionsMain plugin;
 
 	private ChatColor good = Colour.GOOD.getColour();
 	private ChatColor highlight = Colour.HIGHLIGHT.getColour();
 
-	public GroupEventHandler(Main main) {
+	public GroupEventHandler(PermissionsMain main) {
 		plugin = main;
 	}
 
-	public static void setPlugin(Main main) {
+	public static void setPlugin(PermissionsMain main) {
 		plugin = main;
 	}
 	
@@ -42,14 +43,10 @@ public class GroupEventHandler implements Listener {
 				}
 			}
 			groupAccessor.setPlayerGroup(group);
-//			Group.setPlayerGroup(player, group);
 			player.sendMessage(good + "As it is your first time on the server, you have been added to the default group: " + highlight
 						+ group.getName());
 		} else {
-			Group playerGroup = groupAccessor.getPlayerGroup();
-//			groupAccessor.setPlayerGroup(playerGroup);
-//			Group.setPlayerGroup(player, group);
-			player.sendMessage(good + "You are in the Group: " + highlight + playerGroup.getName());
+			GetGroup.playerInformGroup(player);
 		}
 		
 	}

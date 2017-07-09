@@ -6,12 +6,12 @@ import java.util.List;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.Tiernanator.File.ConfigAccessor;
-import me.Tiernanator.Permissions.Main;
+import me.Tiernanator.Permissions.PermissionsMain;
 
 public class Group {
 	
-	private static Main plugin;
-	public static void setPlugin(Main main) {
+	private static PermissionsMain plugin;
+	public static void setPlugin(PermissionsMain main) {
 		plugin = main;
 	}
 	

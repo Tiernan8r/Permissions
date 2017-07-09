@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.Tiernanator.Colours.Colour;
-import me.Tiernanator.Permissions.Main;
+import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
 import me.Tiernanator.Utilities.Players.GetPlayer;
@@ -17,7 +17,7 @@ import me.Tiernanator.Utilities.Players.GetPlayer;
 public class GetGroup implements CommandExecutor {
 
 	@SuppressWarnings("unused")
-	private static Main plugin;
+	private static PermissionsMain plugin;
 
 	// group arrays
 	static List<String> groups;
@@ -30,11 +30,11 @@ public class GetGroup implements CommandExecutor {
 	private static ChatColor informative = Colour.INFORMATIVE.getColour();
 
 	// this has to stay the Main class won't be happy.
-	public GetGroup(Main main) {
+	public GetGroup(PermissionsMain main) {
 		plugin = main;
 	}
 
-	public static void setPlugin(Main main) {
+	public static void setPlugin(PermissionsMain main) {
 		plugin = main;
 	}
 
@@ -61,7 +61,6 @@ public class GetGroup implements CommandExecutor {
 			}
 			GroupAccessor groupAccessor = new GroupAccessor(player);
 			Group playerGroup = groupAccessor.getPlayerGroup();
-//			String playerGroup = Group.getPlayerGroup(player).getName();
 
 			sender.sendMessage(
 					good + "The player " + informative + player.getName() + good
@@ -98,7 +97,6 @@ public class GetGroup implements CommandExecutor {
 
 			GroupAccessor groupAccessor = new GroupAccessor(player);
 			Group playerGroup = groupAccessor.getPlayerGroup();
-//			String playerGroup = Group.getPlayerGroup(player).getName();
 
 			if (player.equals((Player) sender)) {
 				sender.sendMessage(good + "You are in the group: " + highlight
@@ -116,7 +114,6 @@ public class GetGroup implements CommandExecutor {
 	public static void playerInformGroup(Player player) {
 		GroupAccessor groupAccessor = new GroupAccessor(player);
 		Group playerGroup = groupAccessor.getPlayerGroup();
-//		String playerGroup = Group.getPlayerGroupName(player);
 		player.sendMessage(good + "You are in the group: " + highlight
 					+ playerGroup.getName());
 		

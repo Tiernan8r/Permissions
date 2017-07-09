@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.Tiernanator.Colours.Colour;
-import me.Tiernanator.Permissions.Main;
+import me.Tiernanator.Permissions.PermissionsMain;
 
 
 //The whole command is a bit redundant due to listPermission(), but it's here for convenience.
@@ -18,7 +18,7 @@ public class TestPermission implements CommandExecutor {
 	private ChatColor good;
 	private ChatColor warning;
 	
-	public TestPermission(Main main) {
+	public TestPermission(PermissionsMain main) {
 
 	}
 
