@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.Tiernanator.File.ConfigAccessor;
 import me.Tiernanator.Permissions.PermissionsMain;
+import me.Tiernanator.Utilities.File.ConfigAccessor;
 
 public class Group {
 	

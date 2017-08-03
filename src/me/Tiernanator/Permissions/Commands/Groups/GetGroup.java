@@ -8,10 +8,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.Tiernanator.Colours.Colour;
 import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
+import me.Tiernanator.Utilities.Colours.Colour;
 import me.Tiernanator.Utilities.Players.GetPlayer;
 
 public class GetGroup implements CommandExecutor {

@@ -1,15 +1,16 @@
 package me.Tiernanator.Permissions.Commands.Groups;
 
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.Tiernanator.Colours.Colour;
 import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
+import me.Tiernanator.Utilities.Colours.Colour;
 import me.Tiernanator.Utilities.Players.GetPlayer;
 
 public class SetGroup implements CommandExecutor {
@@ -41,7 +42,7 @@ public class SetGroup implements CommandExecutor {
 		if (sender instanceof Player) {
 			GroupAccessor groupAccessor = new GroupAccessor((Player) sender);
 			Group senderGroup = groupAccessor.getPlayerGroup();
-//			Group senderGroup = Group.getPlayerGroup((Player) sender);
+			// Group senderGroup = Group.getPlayerGroup((Player) sender);
 			// only ops & the players in the highest group can use this
 			if (!senderGroup.membersOP()) {
 				sender.sendMessage(warning + "You can't use this command.");
@@ -54,7 +55,8 @@ public class SetGroup implements CommandExecutor {
 					warning + "You must specify a Player and a GroupSaver");
 			return false;
 		}
-		Player playerForPermission = GetPlayer.getPlayer(args[0], sender, warning, highlight);
+		OfflinePlayer playerForPermission = GetPlayer.getOfflinePlayer(args[0],
+				sender, warning, highlight);
 
 		if (playerForPermission == null) {
 			return false;
@@ -69,24 +71,33 @@ public class SetGroup implements CommandExecutor {
 			sender.sendMessage(bad + "That is not a group, the Groups are:");
 			// tell them each group in turn
 			for (Group g : Group.allGroups()) {
-				sender.sendMessage(
-						informative + " - " + g.getName() + ".");
+				sender.sendMessage(informative + " - " + g.getName() + ".");
 			}
 			return false;
 		}
-		
+
 		GroupAccessor groupAccessor = new GroupAccessor(playerForPermission);
-		
+		Group currentGroup = groupAccessor.getPlayerGroup();
+
+		if (currentGroup.equals(group)) {
+			sender.sendMessage(bad + "The Player " + highlight
+					+ playerForPermission.getName() + bad
+					+ " is already in the Group " + highlight + group.getName()
+					+ bad + ".");
+			return false;
+		}
+
 		// reset their group to the specified one
-//		Group.setPlayerGroup(playerForPermission, group);
+		// Group.setPlayerGroup(playerForPermission, group);
 		groupAccessor.setPlayerGroup(group);
 		// inform them of the change
-		playerForPermission.sendMessage(
-				good + "You have been added to the group: " + highlight
-						+ group.getName());
+		if (playerForPermission.isOnline()) {
+			playerForPermission.getPlayer()
+					.sendMessage(good + "You have been added to the group: "
+							+ highlight + group.getName());
+		}
 		sender.sendMessage(highlight + playerForPermission.getName() + good
-				+ " was added to the group: " + informative
-				+ group.getName());
+				+ " was added to the group: " + informative + group.getName());
 		return true;
 
 	}

@@ -6,11 +6,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import me.Tiernanator.Colours.Colour;
 import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Commands.Groups.GetGroup;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
+import me.Tiernanator.Utilities.Colours.Colour;
 
 public class GroupEventHandler implements Listener {
 
@@ -36,7 +36,7 @@ public class GroupEventHandler implements Listener {
 		Group group = null;
 		GroupAccessor groupAccessor = new GroupAccessor(player);
 		
-		if(!player.hasPlayedBefore()) {
+		if(!player.hasPlayedBefore() || !groupAccessor.hasPlayerGroup()) {
 			for(Group g : Group.allGroups()) {
 				if(g.isDefault()) {
 					group = g;

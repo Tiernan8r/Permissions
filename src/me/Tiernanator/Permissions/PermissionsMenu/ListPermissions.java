@@ -13,13 +13,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.Tiernanator.Colours.Colour;
-import me.Tiernanator.File.ConfigAccessor;
-import me.Tiernanator.Menu.Menu;
-import me.Tiernanator.Menu.MenuAction;
-import me.Tiernanator.Menu.MenuEntry;
 import me.Tiernanator.Permissions.PermissionsMain;
+import me.Tiernanator.Utilities.Colours.Colour;
+import me.Tiernanator.Utilities.File.ConfigAccessor;
 import me.Tiernanator.Utilities.Items.Item;
+import me.Tiernanator.Utilities.Menu.Menu;
+import me.Tiernanator.Utilities.Menu.MenuAction;
+import me.Tiernanator.Utilities.Menu.MenuEntry;
 
 public class ListPermissions implements CommandExecutor {
 	

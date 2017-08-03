@@ -8,11 +8,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.Tiernanator.Colours.Colour;
 import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Events.CustomEvents.CustomGroupChangeEvent;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
+import me.Tiernanator.Utilities.Colours.Colour;
 import me.Tiernanator.Utilities.Players.GetPlayer;
 
 public class GroupDemote implements CommandExecutor {
@@ -68,8 +68,7 @@ public class GroupDemote implements CommandExecutor {
 			if (success) {
 
 				sender.sendMessage(highlight + player.getName() + good
-						+ " was demoted to the group: " + informative
-						+ playerGroup.getName() + good + ".");
+						+ " was demoted.");
 
 			} else if (Boolean.valueOf(success) == null) {
 
@@ -112,8 +111,6 @@ public class GroupDemote implements CommandExecutor {
 			Group senderGroup = senderGroupAccessor.getPlayerGroup();
 			GroupAccessor playerToDemoteGroupAccessor = new GroupAccessor(playerToDemote);
 			Group playerToDemoteGroup = playerToDemoteGroupAccessor.getPlayerGroup();
-//			Group senderGroup = Group.getPlayerGroup(playerSender);
-//			Group playerToDemoteGroup = Group.getPlayerGroup(playerToDemote);
 
 			List<Group> allGroups = Group.allGroups();
 			int senderIndex = allGroups.indexOf(senderGroup);
@@ -139,12 +136,9 @@ public class GroupDemote implements CommandExecutor {
 			if((senderIndex == allGroups.size() - 1) || playerToDemoteIndex < senderIndex || playerToDemoteIndex == senderIndex) {
 				// demote Function
 				demotePlayer(playerToDemote);
-				GroupAccessor groupAccessor = new GroupAccessor(playerToDemote);
-				Group playerGroup = groupAccessor.getPlayerGroup();
 				// Inform the sender of the action
 				playerSender.sendMessage(highlight + playerToDemote.getName()
-						+ good + " was demoted to " + highlight
-						+ playerGroup.getName() + good + ".");
+						+ good + " was demoted.");
 
 				return true;
 			}

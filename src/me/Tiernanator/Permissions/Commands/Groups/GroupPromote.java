@@ -8,11 +8,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.Tiernanator.Colours.Colour;
 import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Events.CustomEvents.CustomGroupChangeEvent;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
+import me.Tiernanator.Utilities.Colours.Colour;
 import me.Tiernanator.Utilities.Players.GetPlayer;
 
 public class GroupPromote implements CommandExecutor {
@@ -61,8 +61,7 @@ public class GroupPromote implements CommandExecutor {
 			if (success) {
 
 				sender.sendMessage(highlight + player.getName() + good
-						+ " was promoted, to group: " + informative
-						+ playerGroup.getName() + good + ".");
+						+ " was promoted.");
 
 			} else {
 
@@ -140,11 +139,8 @@ public class GroupPromote implements CommandExecutor {
 				// demote Function
 				promotePlayer(playerToPromote);
 				// Inform the sender of the action
-				GroupAccessor groupAccessor = new GroupAccessor(playerToPromote);
-				Group playerGroup = groupAccessor.getPlayerGroup();
 				playerSender.sendMessage(highlight + playerToPromote.getName()
-						+ good + " was promoted to " + highlight
-						+ playerGroup.getName() + good + ".");
+						+ good + " was promoted.");
 
 				return true;
 			}
@@ -169,7 +165,6 @@ public class GroupPromote implements CommandExecutor {
 		List<Group> allGroups = Group.allGroups();
 		GroupAccessor groupAccessor = new GroupAccessor(player);
 		Group playerGroup = groupAccessor.getPlayerGroup();
-//		Group playerGroup = Group.getPlayerGroup(player);
 		
 		int groupIndex = allGroups.indexOf(playerGroup);
 		
@@ -183,7 +178,6 @@ public class GroupPromote implements CommandExecutor {
 		
 		// set permissions for the lower group
 		groupAccessor.setPlayerGroup(newGroup);
-//		Group.setPlayerGroup(player, newGroup);
 		// inform them of the change
 		player.sendMessage(good + "You have been promoted to the group: "
 				+ highlight + newGroup.getName() + good + ".");

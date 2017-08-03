@@ -7,16 +7,17 @@ import java.util.logging.Level;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.permissions.PermissionAttachmentInfo;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import me.Tiernanator.File.ConfigAccessor;
-import me.Tiernanator.File.Log;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
+import me.Tiernanator.Utilities.File.ConfigAccessor;
+import me.Tiernanator.Utilities.File.Log;
 
 public class Permission {
 
@@ -218,6 +219,39 @@ public class Permission {
 			}
 		}
 		return null;
+	}
+	
+	public static String getPermissionForEvent(String eventName) {
+
+		Plugin[] allPlugins = plugin.getServer().getPluginManager()
+				.getPlugins();
+		for (Plugin pl : allPlugins) {
+			ConfigAccessor permissionAccessor = new ConfigAccessor(
+					(JavaPlugin) pl, "@permissions.yml");
+
+			List<String> allPermissions = permissionAccessor.getConfig()
+					.getStringList("Permissions." + pl.getName() + ".*");
+			for (String permission : allPermissions) {
+				String permissionsEvent = "";
+				permissionsEvent = permissionAccessor.getConfig().getString(
+						"Permissions." + permission + ".event");
+				try {
+					if (permissionsEvent.equalsIgnoreCase("")) {
+						continue;
+					}
+				} catch (Exception e) {
+					continue;
+				}
+				if(permissionsEvent.equalsIgnoreCase(eventName)) {
+					return permission;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public static String getPermissionForEvent(Event event) {
+		return getPermissionForEvent(event.getEventName());
 	}
 
 }

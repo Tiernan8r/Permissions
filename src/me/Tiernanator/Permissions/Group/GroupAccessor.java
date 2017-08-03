@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import me.Tiernanator.Permissions.Permission;
 import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Events.CustomEvents.CustomGroupChangeEvent;
-import me.Tiernanator.SQL.SQLServer;
+import me.Tiernanator.Utilities.SQL.SQLServer;
 
 public class GroupAccessor {
 
@@ -44,9 +44,11 @@ public class GroupAccessor {
 
 		String playerUUID = getPlayer().getUniqueId().toString();
 		if (!hasPlayerGroup()) {
+			
 			String statement = "INSERT INTO PermissionUsers (UUID, PlayerGroup) VALUES (?, ?);";
 			Object[] values = new Object[]{playerUUID, group.getName()};
 			SQLServer.executePreparedStatement(statement, values);
+		
 		} else {
 
 			String statement = "UPDATE PermissionUsers SET PlayerGroup = ? WHERE UUID = ?;";

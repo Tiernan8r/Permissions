@@ -4,18 +4,19 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.Tiernanator.File.Log;
 import me.Tiernanator.Permissions.Commands.Groups.GetGroup;
 import me.Tiernanator.Permissions.Commands.Groups.GroupDemote;
 import me.Tiernanator.Permissions.Commands.Groups.GroupPromote;
 import me.Tiernanator.Permissions.Commands.Groups.SetGroup;
-import me.Tiernanator.Permissions.Commands.Permissions.OnCommand;
 import me.Tiernanator.Permissions.Commands.Permissions.TestPermission;
 import me.Tiernanator.Permissions.Events.GroupEventHandler;
 import me.Tiernanator.Permissions.Group.Group;
 import me.Tiernanator.Permissions.Group.GroupAccessor;
+import me.Tiernanator.Permissions.PermissionHandlers.OnCommand;
+import me.Tiernanator.Permissions.PermissionHandlers.OnEvent;
 import me.Tiernanator.Permissions.PermissionsMenu.ListPermissions;
-import me.Tiernanator.SQL.SQLServer;
+import me.Tiernanator.Utilities.File.Log;
+import me.Tiernanator.Utilities.SQL.SQLServer;
 
 public class PermissionsMain extends JavaPlugin {
 
@@ -74,6 +75,9 @@ public class PermissionsMain extends JavaPlugin {
 		pm.registerEvents(new GroupEventHandler(this), this);
 		pm.registerEvents(new OnCommand(this), this);
 		
+		pm.registerEvents(new OnEvent(this), this);
+		
+		
 	}
 
 	private void allocateConstants() {
@@ -88,9 +92,11 @@ public class PermissionsMain extends JavaPlugin {
 		
 		String query = "CREATE TABLE IF NOT EXISTS PermissionUsers ( "
 				+ "UUID varchar(36) NOT NULL, "
-				+ "PlayerGroup varchar(255) NOT NULL" + ");";
+				+ "PlayerGroup varchar(255) NOT NULL,"
+				+ "PRIMARY KEY (UUID)"
+				+ ");";
 		SQLServer.executeQuery(query);
-
+		
 	}
 
 }

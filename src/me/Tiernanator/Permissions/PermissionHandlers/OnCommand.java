@@ -1,14 +1,14 @@
-package me.Tiernanator.Permissions.Commands.Permissions;
+package me.Tiernanator.Permissions.PermissionHandlers;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-import me.Tiernanator.Colours.Colour;
-import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Permissions.Permission;
+import me.Tiernanator.Permissions.PermissionsMain;
+import me.Tiernanator.Utilities.Colours.Colour;
+import me.Tiernanator.Utilities.Events.CommandCallEvent;
 
 public class OnCommand implements Listener {
 
@@ -28,17 +28,11 @@ public class OnCommand implements Listener {
 	}
 	
 	@EventHandler
-	public void onPlayerUseCommand(PlayerCommandPreprocessEvent event) {
+	public void onPlayerCommand(CommandCallEvent event) {
 
 		Player player = event.getPlayer();
 
-		String wholeString = event.getMessage();
-		String commandName;
-		if(wholeString.contains(" ")) {
-			commandName = wholeString.substring(0, wholeString.indexOf(" "));
-		} else {
-			commandName = wholeString;
-		}
+		String commandName = event.getCalledCommandName(); 
 		
 		String permission = Permission.getPermissionForCommand(commandName);
 		
@@ -52,4 +46,5 @@ public class OnCommand implements Listener {
 		}
 		
 	}
+	
 }
