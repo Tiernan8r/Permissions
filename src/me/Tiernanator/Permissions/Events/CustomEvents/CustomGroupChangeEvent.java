@@ -1,10 +1,9 @@
 package me.Tiernanator.Permissions.Events.CustomEvents;
 
+import me.Tiernanator.Permissions.Group.Group;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
-
-import me.Tiernanator.Permissions.Group.Group;
 
 //This is the custom player create portal event with a flint and steel event that is called by PlayerFlintAndSteelInteract, it just contains functions that
 //return all the values needed

@@ -1,8 +1,12 @@
 package me.Tiernanator.Permissions.PermissionsMenu;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import me.Tiernanator.Permissions.PermissionsMain;
+import me.Tiernanator.Utilities.Colours.Colour;
+import me.Tiernanator.Utilities.File.ConfigAccessor;
+import me.Tiernanator.Utilities.Items.ItemUtility;
+import me.Tiernanator.Utilities.Menu.Menu;
+import me.Tiernanator.Utilities.Menu.MenuAction;
+import me.Tiernanator.Utilities.Menu.MenuEntry;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -13,13 +17,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.Tiernanator.Permissions.PermissionsMain;
-import me.Tiernanator.Utilities.Colours.Colour;
-import me.Tiernanator.Utilities.File.ConfigAccessor;
-import me.Tiernanator.Utilities.Items.Item;
-import me.Tiernanator.Utilities.Menu.Menu;
-import me.Tiernanator.Utilities.Menu.MenuAction;
-import me.Tiernanator.Utilities.Menu.MenuEntry;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ListPermissions implements CommandExecutor {
 	
@@ -49,7 +48,7 @@ public class ListPermissions implements CommandExecutor {
 			
 			ItemStack item = new ItemStack(Material.BEACON);
 			
-			String entryName = ChatColor.BLUE + "§L" + plugin.getName();
+			String entryName = ChatColor.BLUE + "ï¿½L" + plugin.getName();
 			
 			List<MenuEntry> permissionEntries = new ArrayList<MenuEntry>();
 			
@@ -64,7 +63,7 @@ public class ListPermissions implements CommandExecutor {
 						"Permissions." + permission + ".description");
 				
 				ItemStack nameTag = new ItemStack(Material.NAME_TAG);
-				Item.addLore(nameTag, ChatColor.DARK_PURPLE + description);
+				ItemUtility.addLore(nameTag, ChatColor.DARK_PURPLE + description);
 				
 				String permissionName = ChatColor.YELLOW + permission;
 				

@@ -1,14 +1,13 @@
 package me.Tiernanator.Permissions.PermissionHandlers;
 
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-
 import me.Tiernanator.Permissions.Permission;
 import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Utilities.Colours.Colour;
 import me.Tiernanator.Utilities.Events.CommandCallEvent;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 
 public class OnCommand implements Listener {
 

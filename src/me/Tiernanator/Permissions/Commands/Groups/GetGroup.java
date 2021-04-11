@@ -1,18 +1,17 @@
 package me.Tiernanator.Permissions.Commands.Groups;
 
-import java.util.List;
-
+import me.Tiernanator.Permissions.Group.Group;
+import me.Tiernanator.Permissions.Group.GroupAccessor;
+import me.Tiernanator.Permissions.PermissionsMain;
+import me.Tiernanator.Utilities.Colours.Colour;
+import me.Tiernanator.Utilities.Players.GetPlayer;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.Tiernanator.Permissions.PermissionsMain;
-import me.Tiernanator.Permissions.Group.Group;
-import me.Tiernanator.Permissions.Group.GroupAccessor;
-import me.Tiernanator.Utilities.Colours.Colour;
-import me.Tiernanator.Utilities.Players.GetPlayer;
+import java.util.List;
 
 public class GetGroup implements CommandExecutor {
 

@@ -1,16 +1,15 @@
 package me.Tiernanator.Permissions.Events;
 
+import me.Tiernanator.Permissions.Commands.Groups.GetGroup;
+import me.Tiernanator.Permissions.Group.Group;
+import me.Tiernanator.Permissions.Group.GroupAccessor;
+import me.Tiernanator.Permissions.PermissionsMain;
+import me.Tiernanator.Utilities.Colours.Colour;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-
-import me.Tiernanator.Permissions.PermissionsMain;
-import me.Tiernanator.Permissions.Commands.Groups.GetGroup;
-import me.Tiernanator.Permissions.Group.Group;
-import me.Tiernanator.Permissions.Group.GroupAccessor;
-import me.Tiernanator.Utilities.Colours.Colour;
 
 public class GroupEventHandler implements Listener {
 

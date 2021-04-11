@@ -1,9 +1,5 @@
 package me.Tiernanator.Permissions;
 
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
-
 import me.Tiernanator.Permissions.Commands.Groups.GetGroup;
 import me.Tiernanator.Permissions.Commands.Groups.GroupDemote;
 import me.Tiernanator.Permissions.Commands.Groups.GroupPromote;
@@ -17,6 +13,9 @@ import me.Tiernanator.Permissions.PermissionHandlers.OnEvent;
 import me.Tiernanator.Permissions.PermissionsMenu.ListPermissions;
 import me.Tiernanator.Utilities.File.Log;
 import me.Tiernanator.Utilities.SQL.SQLServer;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class PermissionsMain extends JavaPlugin {
 

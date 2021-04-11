@@ -1,12 +1,11 @@
 package me.Tiernanator.Permissions.Group;
 
-import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
-
+import me.Tiernanator.Permissions.Events.CustomEvents.CustomGroupChangeEvent;
 import me.Tiernanator.Permissions.Permission;
 import me.Tiernanator.Permissions.PermissionsMain;
-import me.Tiernanator.Permissions.Events.CustomEvents.CustomGroupChangeEvent;
 import me.Tiernanator.Utilities.SQL.SQLServer;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 
 public class GroupAccessor {
 

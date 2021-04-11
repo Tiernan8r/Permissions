@@ -1,13 +1,12 @@
 package me.Tiernanator.Permissions.Commands.Permissions;
 
+import me.Tiernanator.Permissions.PermissionsMain;
+import me.Tiernanator.Utilities.Colours.Colour;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.Tiernanator.Permissions.PermissionsMain;
-import me.Tiernanator.Utilities.Colours.Colour;
 
 
 //The whole command is a bit redundant due to listPermission(), but it's here for convenience.

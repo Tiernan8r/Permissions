@@ -1,10 +1,9 @@
 package me.Tiernanator.Permissions;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.logging.Level;
-
+import me.Tiernanator.Permissions.Group.Group;
+import me.Tiernanator.Permissions.Group.GroupAccessor;
+import me.Tiernanator.Utilities.File.ConfigAccessor;
+import me.Tiernanator.Utilities.File.Log;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -14,10 +13,10 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import me.Tiernanator.Permissions.Group.Group;
-import me.Tiernanator.Permissions.Group.GroupAccessor;
-import me.Tiernanator.Utilities.File.ConfigAccessor;
-import me.Tiernanator.Utilities.File.Log;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.logging.Level;
 
 public class Permission {
 

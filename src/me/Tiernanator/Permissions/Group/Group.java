@@ -1,12 +1,11 @@
 package me.Tiernanator.Permissions.Group;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bukkit.plugin.java.JavaPlugin;
-
 import me.Tiernanator.Permissions.PermissionsMain;
 import me.Tiernanator.Utilities.File.ConfigAccessor;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Group {
 	
